@@ -72,13 +72,14 @@ public enum RespEnum
     GOODS_NO_INVENTOEY_ERROR("222", "商品卖完了"),
     GOODS_NOT_EXISTS_ERROR("223", "无此商品"),
     GOODS_NOT_EXISTS_OR_OFF_SHOP_ERROR("223", "无此商品或已下架"),
-
+    GOODS_NUM_ERROR("225", "商品数量必须大于0"),
     
     /**请设置收货地址*/
     ORDER_SELECT_SHIP_ADDRESS_ISEMPTY("660004", "请选择收货地址"),
     PARAMLOSE("600004", "必要参数缺失"),
     SYSTEMBUSY("900005", "系统繁忙,请重试"),
     
+    TPYEERROR("600010", "订单类型不存在"),
     STOCKSHORT("600005", "库存不足"),
     BEYONDLIMIT("600006", "已超过最大可购买数量"),
     TICKETSHORT("600007", "抵用劵不足"),
@@ -107,6 +108,12 @@ public enum RespEnum
     PAY_YS_MERHOD_WECHAT_ORDER_TO_PAY_FAIL("1005","[银盛]订单微信支付失败(准备支付失败)"),
     PAY_TYPE_ERROR("1006","支付方式有误"),
     
+//    消费区
+    XFQ_PLEASE_SELECT_A_GOODS_ERROR("900","请选择消费区商品"),
+    XFQ_STOCK_NOT_ENOUGH_ERROR("901","消费区商品库存不足"),
+    XFQ_PINGLUN_FAIL("902","消费区评论失败"),
+    XFQ_CONFIRM_FAIL("903","请勿重复确认"),
+    XFQ_ADD_CONSCART_NUM_MUST_LARGE_ZERO_ERROE("904","添加数量必须大于0"),
     
     HTTP_STATUS_NOT_FOUND("404", "Not Found");
    
@@ -129,6 +136,11 @@ public enum RespEnum
        public String getCode() {
            return code;
        }
+       
+       public static String getCodeValue(String name) {
+    	   RespEnum byName1 = RespEnum.getByName(name );
+           return byName1.getCode();
+       }
 
        public String getMsg() {
            return msg;
@@ -139,5 +151,8 @@ public enum RespEnum
 
            RespEnum byName = RespEnum.getByName(RespEnum.SYSTEM_ERROR.name());
            System.out.println(byName.getMsg());
+           
+           RespEnum byName1 = RespEnum.getByName(RespEnum.SYSTEM_ERROR.name());
+           System.out.println(byName1.getCode());
        }
 }

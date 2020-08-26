@@ -18,6 +18,17 @@ public class ProcedureCode implements Serializable{
 	    public static final String PAY_BATCH_CANCEL = "P1014";
 	    public static final String  GOODS_NEW = "P2021";
 	    
+	    public static final String CONSORDCHK="P1201";
+	    public static final String CONSORDCRT="P1202";
+	    public static final String CONSORDOFF="P1203";
+	    public static final String CONSORDCAL="P1205";
+	    
+	    public static final String CONSORDPRE="P1211";
+	    public static final String CONSORDNTF="P1212";
+	    public static final String CONSORDACC="P1215";
+	    
+	    
+	    
 	    /**每日初始商品*/
 	    public static final String  GOODS_CACHE_EVERYDAY = "P1000";
 	    

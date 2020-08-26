@@ -9,11 +9,20 @@ import java.util.Enumeration;
 
 public class IPUtils {
 	
-	public static String getMyIp() throws UnknownHostException, SocketException {
-		if (isWin()) {
-			return getWinIP();
+	public static String getMyIp()   {
+		
+		try {
+			if (isWin()) {
+				return getWinIP();
+			}
+			return getLinuxIP();
+		} catch (Exception e) { 
+			
+			return "127.0.0.1";
+		}finally { 
 		}
-		return getLinuxIP();
+		
+		
 	}
 
 	private static String getWinIP() throws UnknownHostException {
@@ -25,10 +34,10 @@ public class IPUtils {
 		Enumeration<NetworkInterface> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
 		InetAddress ia = null;
 		while (allNetInterfaces.hasMoreElements()) {
-			NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
+			NetworkInterface netInterface = allNetInterfaces.nextElement();
 			Enumeration<InetAddress> addresses = netInterface.getInetAddresses();
 			while (addresses.hasMoreElements()) {
-				ia = (InetAddress) addresses.nextElement();
+				ia = addresses.nextElement();
 				if ((ia != null) && ((ia instanceof Inet4Address))) {
 					return ia.getHostAddress();
 				}

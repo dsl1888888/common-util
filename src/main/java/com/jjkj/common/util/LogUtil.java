@@ -96,7 +96,7 @@ public class LogUtil {
 		if (null == msg) {
 			msg = "";
 		}
-		logger.debug("hierarchical in " + hierarchical + " | domain in " + domain + " | " + msg);
+		logger.info("hierarchical in " + hierarchical + " | domain in " + domain + " | " + msg);
 	}
 
 	public static void warn(String hierarchical, String domain, String msg) {
@@ -151,7 +151,7 @@ public class LogUtil {
 
 		// logger.info(msg);
 		//
-		// logger.debug(msg);
+		// logger.info(msg);
 		//
 		// logger.error(msg);
 		//

@@ -100,7 +100,7 @@ public class LocalLogUtil {
 		if (null == msg) {
 			msg = "";
 		}
-		logger.debug("hierarchical in " + HIERARCHICAL_SET + " | domain in " + DOMAIN_SET + " | " + msg);
+		logger.info("hierarchical in " + HIERARCHICAL_SET + " | domain in " + DOMAIN_SET + " | " + msg);
 	}
 
 	/**
